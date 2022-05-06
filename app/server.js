@@ -5,6 +5,7 @@ let MongoClient = require('mongodb').MongoClient;
 let bodyParser = require('body-parser');
 let app = express();
 
+// parses incoming request bodies 
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -15,7 +16,7 @@ app.get('/', function (req, res) {
   });
 
 app.get('/profile-picture', function (req, res) {
-  let img = fs.readFileSync(path.join(__dirname, "images/profile-1.jpg"));
+  let img = fs.readFileSync(path.join(__dirname, "images/lambo-1.jpeg"));
   res.writeHead(200, {'Content-Type': 'image/jpg' });
   res.end(img, 'binary');
 });
